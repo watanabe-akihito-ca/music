@@ -13,12 +13,17 @@ CREATE TABLE `music` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22089602 DEFAULT CHARSET=utf8;
 
+CREATE INDEX idx_artist_id ON music (artist_id ASC);
+CREATE INDEX idx_title ON music (title ASC);
+
 CREATE TABLE `play_history` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `music_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22089602 DEFAULT CHARSET=utf8;
+CREATE INDEX idx_music_id ON play_history (music_id ASC);
+
 
 CREATE TABLE `playlist` (
   `name` varchar(255) NOT NULL,
